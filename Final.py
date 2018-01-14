@@ -64,11 +64,9 @@ def mont(point, T):
     
     return point
 
-
-
 e1 = 0
 m1 = 0
-temp=np.random.normal(2.25, .5, dt)   #creating gaus distrib for temp
+temp=np.random.normal(2, .5, dt)   #creating gaus distrib for temp
 dt = np.size(temp)     #equating dt to size of T
 
 #Statistical Information
@@ -78,8 +76,7 @@ for m in range(len(temp)):
     #Let system reach equilibrium before taking results
     for l in range(equil):         
         mont(point, T1)  
-    point = initialstate(rows,cols)  
-     
+    point = initialstate(rows,cols)     
       #Define energy
     def configenergy(point):    
            energy = 0
@@ -101,7 +98,6 @@ for m in range(len(temp)):
         Magnetic Susceptibility [m] = (ms * (((m1**2)*(1/(sweep)))-(mf**2)))
         Specific Heat [m] =  (ms2 * (((e1**2)*(1/(sweep))-(ef**2)))  
             	
-
 
 plt.plot(T, Energy, 'b.')
 plt.xlabel("Temperature (K)")
